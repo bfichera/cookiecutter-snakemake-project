@@ -18,7 +18,7 @@ if remote_choice == 'none':
     ])
     for path in Path('profiles').glob('*'):
         if path.name != 'local':
-            run(['rm', str(path)])
+            run(['rm', '-r', str(path)])
 elif remote_choice == 'carbon':
     run([
         'mv',
@@ -27,6 +27,6 @@ elif remote_choice == 'carbon':
     ])
     for path in Path('profiles').glob('*'):
         if path.name not in ['carbon', 'local']:
-            run(['rm', str(path)])
+            run(['rm', '-r', str(path)])
 for path in Path('workflow').glob('Snakefile-*'):
     run(['rm', str(path)])
