@@ -22,4 +22,5 @@ elif remote_choice == 'carbon':
         str(Path('workflow') / 'Snakefile-remote-carbon'),
         str(snakefile_path)
     ])
-run(['rm', str(Path('workflow') / 'Snakefile-*')])
+for path in Path('workflow').glob('Snakefile-*'):
+    run(['rm', str(path)])
