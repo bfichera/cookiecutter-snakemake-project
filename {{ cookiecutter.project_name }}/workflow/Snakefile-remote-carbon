@@ -1,0 +1,14 @@
+ACTIVATE_ENV = "source workflow/envs/venv/bin/activate"
+
+rule all:
+    input:
+        script="workflow/scripts/all.py"
+    output:
+        directory("plots/")
+    threads: 16
+    resources:
+        nodes=1,
+        mem_str="256gb",
+        runtime=28800
+    shell:
+        "{ACTIVATE_ENV} && python {input.script}"
