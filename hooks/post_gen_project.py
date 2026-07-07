@@ -16,11 +16,17 @@ if remote_choice == 'none':
         str(Path('workflow') / 'Snakefile-local'),
         str(snakefile_path),
     ])
+    for path in Path('profiles').glob('*'):
+        if path.name != 'local':
+            run(['rm', str(path)])
 elif remote_choice == 'carbon':
     run([
         'mv',
         str(Path('workflow') / 'Snakefile-remote-carbon'),
         str(snakefile_path)
     ])
+    for path in Path('profiles').glob('*'):
+        if path.name not in ['carbon', 'local']:
+            run(['rm', str(path)])
 for path in Path('workflow').glob('Snakefile-*'):
     run(['rm', str(path)])
