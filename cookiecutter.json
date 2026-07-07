@@ -1,3 +1,4 @@
 {
-  "project_name": "Snakemake Boilerplate"
+  "project_name": "Snakemake Boilerplate",
+  "install_packages": []
 }
