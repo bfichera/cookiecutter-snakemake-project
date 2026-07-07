@@ -1,0 +1,9 @@
+ACTIVATE_ENV = "source workflow/envs/venv/bin/activate"
+
+rule all:
+    input:
+        script="workflow/scripts/all.py"
+    output:
+        directory("plots/")
+    shell:
+        "{ACTIVATE_ENV} && python {input.script}"
