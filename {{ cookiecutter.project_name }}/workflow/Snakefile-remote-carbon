@@ -12,4 +12,4 @@ rule all:
         mem_str="256gb",
         runtime=28800
     shell:
-        "{ACTIVATE_ENV} && {PYTHON} {input.script}"
+        "mkdir {output} && {ACTIVATE_ENV} && {PYTHON} {input.script}"

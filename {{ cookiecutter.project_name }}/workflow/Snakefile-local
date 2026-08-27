@@ -7,4 +7,4 @@ rule all:
     output:
         directory("plots/")
     shell:
-        "{ACTIVATE_ENV} && {PYTHON} {input.script}"
+        "mkdir {output} && {ACTIVATE_ENV} && {PYTHON} {input.script}"
