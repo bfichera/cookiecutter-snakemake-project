@@ -1,4 +1,5 @@
 ACTIVATE_ENV = "source workflow/envs/venv/bin/activate"
+PYTHON = {python}
 
 rule all:
     input:
@@ -11,4 +12,4 @@ rule all:
         mem_str="256gb",
         runtime=28800
     shell:
-        "{ACTIVATE_ENV} && python {input.script}"
+        "{ACTIVATE_ENV} && {PYTHON} {input.script}"
