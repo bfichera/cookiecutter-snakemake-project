@@ -1,5 +1,5 @@
 ACTIVATE_ENV = "source workflow/envs/venv/bin/activate"
-PYTHON = {python}
+PYTHON = "python"
 
 rule all:
     input:
