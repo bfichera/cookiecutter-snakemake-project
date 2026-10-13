@@ -2,5 +2,6 @@
   "project_name": "Snakemake Boilerplate",
   "install_packages": "",
   "local_cores": 8,
-  "remote_profile": ["none", "carbon"]
+  "remote_profile": ["none", "carbon"],
+  "__remote_profile_name": "{{ cookiecutter.remote_profile.replace('none', 'local') }}"
 }

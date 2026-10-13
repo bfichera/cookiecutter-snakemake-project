@@ -1,7 +1,8 @@
-.PHONY: main
-
 main:
-	snakemake --profile profiles/{{ cookiecutter.remote_profile }} --rerun-incomplete
+	snakemake --profile profiles/{{ cookiecutter.__remote_profile_name }} --rerun-incomplete
+
+check:
+	snakemake --profile profiles/{{ cookiecutter.__remote_profile_name }} --rerun-incomplete -n
 
 clean:
 	rm -rf .snakemake/
