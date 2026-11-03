@@ -1,0 +1,16 @@
+[project]
+name = "{{ cookiecutter.project_name | lower | replace(' ', '-') }}"
+version = "0.1.0"
+requires-python = ">={{ cookiecutter.python_version }}"
+dependencies = []
+
+[dependency-groups]
+workflow = [
+    "snakemake",
+{%- if cookiecutter.remote_profile == 'carbon' %}
+    "snakemake-executor-plugin-cluster-generic",
+{%- endif %}
+]
+
+[tool.uv]
+default-groups = ["workflow"]

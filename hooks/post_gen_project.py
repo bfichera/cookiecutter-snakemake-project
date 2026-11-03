@@ -1,12 +1,12 @@
 from pathlib import Path
 from subprocess import run
 
-venv_dest_path = Path('workflow') / 'envs' / 'venv'
-run(['/usr/bin/env', 'python', '-m', 'venv', str(venv_dest_path)])
+run(['uv', 'python', 'pin', '{{ cookiecutter.python_version }}'], check=True)
 packages = '{{ cookiecutter.install_packages }}'.split()
 if packages:
-    run([str(venv_dest_path / 'bin' / 'python'), '-m', 'pip', 'install'] +
-        packages)
+    run(['uv', 'add'] + packages, check=True)
+else:
+    run(['uv', 'sync'], check=True)
 
 remote_choice = '{{ cookiecutter.remote_profile }}'
 snakefile_path = Path('workflow') / 'Snakefile'

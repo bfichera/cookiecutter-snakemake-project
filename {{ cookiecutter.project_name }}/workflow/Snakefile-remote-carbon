@@ -1,5 +1,4 @@
-ACTIVATE_ENV = "source workflow/envs/venv/bin/activate"
-PYTHON = "python"
+PYTHON = "uv run --frozen python"
 
 rule all:
     input:
@@ -12,4 +11,4 @@ rule all:
         mem_str="256gb",
         runtime=28800
     shell:
-        "mkdir -p {output} && {ACTIVATE_ENV} && {PYTHON} {input.script}"
+        "mkdir -p {output} && {PYTHON} {input.script}"

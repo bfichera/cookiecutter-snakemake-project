@@ -1,5 +1,6 @@
 {
   "project_name": "Snakemake Boilerplate",
+  "python_version": "3.12",
   "install_packages": "",
   "local_cores": 8,
   "remote_profile": ["none", "carbon"],
