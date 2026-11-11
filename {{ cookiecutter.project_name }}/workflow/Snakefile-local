@@ -1,7 +1,9 @@
-PYTHON = "uv run --frozen python"
+PYTHON = "uv run --locked python"
+LOCKFILE = "uv.lock"
 
 rule all:
     input:
+        lockfile=LOCKFILE,
         script="workflow/scripts/all.py"
     output:
         directory("plots/")
