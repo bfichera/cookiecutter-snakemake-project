@@ -2,6 +2,10 @@ from pathlib import Path
 from subprocess import run
 
 run(['uv', 'python', 'pin', '{{ cookiecutter.python_version }}'], check=True)
+
+dev_packages = ['snakemake']
+run(['uv', 'add', '--dev'] + dev_packages, check=True)
+
 packages = '{{ cookiecutter.install_packages }}'.split()
 if packages:
     run(['uv', 'add'] + packages, check=True)
